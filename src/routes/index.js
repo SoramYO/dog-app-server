@@ -6,11 +6,13 @@ const dogRoutes = require("./dog.routes");
 const socialRoutes = require("./social.routes");
 const petRoutes = require("./pet.routes");
 const productRoutes = require("./product.routes");
+const adminRoutes = require("./admin.routes");
 
 router.use("/auth", authRoutes);
 router.use("/dog", dogRoutes);
 router.use("/social", socialRoutes);
 router.use("/pet", petRoutes);
 router.use("/product", productRoutes);
+router.use("/admin", adminRoutes);
 
 module.exports = router;
