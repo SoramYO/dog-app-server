@@ -3,12 +3,20 @@ const Schema = mongoose.Schema;
 
 const breedInfoSchema = new Schema(
   {
-    breed: {
+    name: {
       type: String,
       required: true,
       index: true,
     },
-    description: {
+    name_vn: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
+    life_span: {
       type: String,
       required: true,
     },
@@ -16,24 +24,20 @@ const breedInfoSchema = new Schema(
       type: String,
       required: true,
     },
-    lifeSpan: {
+    des: {
       type: String,
       required: true,
     },
-    weight: {
+    take_care: {
       type: String,
       required: true,
     },
-    height: {
+    sick: {
       type: String,
       required: true,
     },
-    origin: String,
-    healthIssues: [String],
-    grooming: String,
-    exerciseNeeds: {
+    image: {
       type: String,
-      enum: ["low", "moderate", "high"],
       required: true,
     },
   },
@@ -42,7 +46,7 @@ const breedInfoSchema = new Schema(
   }
 );
 
-// Create text index for breed search
-breedInfoSchema.index({ breed: "text" });
+// Create text index for name search
+breedInfoSchema.index({ name: "text" });
 
 module.exports = mongoose.model("BreedInfo", breedInfoSchema);
