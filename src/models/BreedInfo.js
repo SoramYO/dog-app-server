@@ -24,7 +24,7 @@ const breedInfoSchema = new Schema(
       type: String,
       required: true,
     },
-    des: {
+    description: {
       type: String,
       required: true,
     },

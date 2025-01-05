@@ -81,8 +81,16 @@ const socialController = {
   getRecentPosts: async (req, res) => {
     try {
       const recentPosts = await PetPost.find({ isPublic: true })
+        .populate({
+          path: "petId",
+          select: "breed temperament",
+          populate: {
+            path: "breed",
+            model: "BreedInfo",
+            select: "temperament",
+          },
+        })
         .populate("userId", "username name")
-        .populate("petId", "name temperament")
         .sort({ createdAt: -1 })
         .limit(10)
         .select("content likesCount createdAt");
@@ -91,7 +99,10 @@ const socialController = {
         like_quantity: post.likesCount,
         time_post: post.createdAt,
         title: post.content.substring(0, 100),
-        character: post.petId?.temperament || "Chưa cập nhật",
+        character:
+          post.petId?.breed?.temperament ||
+          post.petId?.temperament ||
+          "Chưa cập nhật",
         owner: {
           name: post.userId?.name || "Người dùng ẩn danh",
           username: post.userId?.username,
