@@ -14,7 +14,7 @@ router.post(
 );
 router.get("/recent-posts", socialController.getRecentPosts);
 router.get(
-  "/user-posts/:userId?",
+  "/user-posts/:userId",
   auth.verifyAccessToken,
   socialController.getUserPosts
 );

@@ -16,7 +16,7 @@ router.delete("/posts/:postId", adminController.deletePost);
 
 // Quản lý giống
 router.get("/breeds", adminController.manageBreeds);
-router.post("/breeds", adminController.addBreed);
-router.put("/breeds/:id", adminController.updateBreed);
+router.post("/breed/add", adminController.addBreed);
+router.put("/breed/update/:id", adminController.updateBreed);
 
 module.exports = router;

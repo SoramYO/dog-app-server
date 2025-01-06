@@ -1,5 +1,5 @@
 const BreedInfo = require("../models/BreedInfo");
-const Post = require("../models/Post");
+const Post = require("../models/PetPost");
 
 const breedController = {
   getBreed: async (req, res) => {
